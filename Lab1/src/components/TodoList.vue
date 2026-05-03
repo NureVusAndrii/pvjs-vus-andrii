@@ -16,10 +16,8 @@ watch(tasks, (val) => localStorage.setItem('todos', JSON.stringify(val)), { deep
 const addTask = () => {
   const trimmedTask = newTask.value.trim()
 
-  // 1. Перевірка на порожнє поле
   if (!trimmedTask) return
 
-  // 2. Перевірка на унікальність тексту (Пункт 8.b)
   const isDuplicate = tasks.value.some(
       (task) => task.text.toLowerCase() === trimmedTask.toLowerCase()
   )
@@ -29,7 +27,6 @@ const addTask = () => {
     return
   }
 
-  // 3. Додавання, якщо перевірки пройдені
   tasks.value.push({
     id: Date.now(),
     text: trimmedTask,

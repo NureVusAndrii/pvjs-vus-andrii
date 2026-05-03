@@ -22,7 +22,7 @@ const save = () => {
 }
 
 const cancel = () => {
-  editedText.value = props.task.text // Скидаємо зміни
+  editedText.value = props.task.text
   isEditing.value = false
 }
 </script>
