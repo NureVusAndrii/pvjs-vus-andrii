@@ -51,12 +51,12 @@ const removeTask = (id) => tasks.value = tasks.value.filter(t => t.id !== id)
 </script>
 
 <template>
-  <div class="input-section" style="display: flex; gap: 15px; margin-bottom: 30px;">
+  <div class="input-section">
     <input v-model="newTask" @keyup.enter="addTask" class="main-input" placeholder="Що потрібно зробити?" />
-    <button @click="addTask" class="icon-btn" style="background: var(--primary); width: 60px; height: 60px; font-size: 28px; border-radius: 12px;">+</button>
+    <button @click="addTask" class="icon-btn add-btn">+</button>
   </div>
 
-  <div class="filter-bar" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 30px;">
+  <div class="filter-bar">
     <button v-for="f in ['all', 'active', 'completed']" :key="f"
             @click="filter = f" :class="{ active: filter === f }"
             class="filter-btn">
@@ -64,7 +64,7 @@ const removeTask = (id) => tasks.value = tasks.value.filter(t => t.id !== id)
     </button>
   </div>
 
-  <ul class="task-list-container" style="list-style: none; padding: 0;">
+  <ul class="task-list-container">
     <TodoItem v-for="task in filteredTasks" :key="task.id" :task="task" @remove="removeTask" @update="updateTask" />
   </ul>
 </template>
